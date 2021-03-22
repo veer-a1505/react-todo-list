@@ -1,9 +1,12 @@
 import React from 'react'
+import TodoForm from './components/TodoForm'
+import TodoHeader from './components/TodoHeader'
 
 function App() {
   return (
-    <div className='App'>
-      <h1>Hello world</h1>
+    <div className='container'>
+      <TodoHeader />
+      <TodoForm />
     </div>
   )
 }
