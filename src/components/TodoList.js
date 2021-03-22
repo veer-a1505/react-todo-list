@@ -4,11 +4,11 @@ import { TodoListContext } from './../state/TodoListprovider'
 
 const TodoList = () => {
   const [tasks] = useContext(TodoListContext)
-  console.log(tasks)
+
   return (
     <div className='todo-list'>
       {tasks.map((task) => (
-        <Todo name={task.todo} key={task.id} />
+        <Todo task={task} key={task.id} />
       ))}
     </div>
   )
