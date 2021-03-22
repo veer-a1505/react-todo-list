@@ -1,15 +1,19 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import { TodoListContext } from './../state/TodoListprovider'
 
 const TodoForm = () => {
-  const [task, setTask] = useState('')
+  const [todo, setTodo] = useState('')
+  const [tasks, setTasks] = useContext(TodoListContext)
 
   const updateTask = (e) => {
-    setTask(e.target.value)
+    setTodo(e.target.value)
   }
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    setTask('')
+    const id = Math.floor(Math.random() * 1000)
+    setTasks((prevState) => [...prevState, { todo, id }])
+    setTodo('')
   }
 
   return (
@@ -19,9 +23,8 @@ const TodoForm = () => {
           type='text'
           placeholder='Add task'
           autoFocus
-          value={task}
-          onChange={updateTask}
-        ></input>
+          value={todo}
+          onChange={updateTask}></input>
 
         <button type='submit'>Add</button>
       </form>

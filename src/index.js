@@ -2,10 +2,11 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
+import TodoListprovider from './state/TodoListprovider'
 
 ReactDOM.render(
-  <React.StrictMode>
+  <TodoListprovider>
     <App />
-  </React.StrictMode>,
+  </TodoListprovider>,
   document.getElementById('root')
 )

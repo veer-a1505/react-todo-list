@@ -1,29 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Todo from './Todo'
+import { TodoListContext } from './../state/TodoListprovider'
 
 const TodoList = () => {
-  const todos = [
-    {
-      name: 'create new project',
-      id: 1,
-    },
-    {
-      name: 'read one book',
-      id: 2,
-    },
-    {
-      name: 'write one blog',
-      id: 3,
-    },
-    {
-      name: 'listen to one programming podcast',
-      id: 4,
-    },
-  ]
+  const [tasks] = useContext(TodoListContext)
+  console.log(tasks)
   return (
     <div className='todo-list'>
-      {todos.map((todo) => (
-        <Todo name={todo.name} />
+      {tasks.map((task) => (
+        <Todo name={task.todo} key={task.id} />
       ))}
     </div>
   )

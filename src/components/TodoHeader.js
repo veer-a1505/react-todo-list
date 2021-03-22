@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { TodoListContext } from './../state/TodoListprovider'
 
 const TodoHeader = () => {
-  return <div className='todo-header'>To-Do List</div>
+  const [tasks] = useContext(TodoListContext)
+  return <div className='todo-header'>To-Do List : {tasks.length}</div>
 }
 
 export default TodoHeader
