@@ -3,7 +3,7 @@ import Todo from './Todo'
 import { TodoListContext } from './../state/TodoListprovider'
 
 const TodoList = () => {
-  const [tasks] = useContext(TodoListContext)
+  const { tasks } = useContext(TodoListContext)
 
   return (
     <div className='todo-list'>
