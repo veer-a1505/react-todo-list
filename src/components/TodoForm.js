@@ -1,20 +1,29 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { TodoListContext } from './../state/TodoListprovider'
 
 const TodoForm = () => {
   const [title, setTitle] = useState('')
-  const { addTasks } = useContext(TodoListContext)
+  const { addTasks, editItem, editTask } = useContext(TodoListContext)
 
   const updateTask = (e) => {
     setTitle(e.target.value)
   }
 
+  useEffect(() => {
+    if (editItem) {
+      setTitle(editItem.name)
+    } else {
+      setTitle('')
+    }
+  }, [editItem])
+
   const handleSubmit = (event) => {
     event.preventDefault()
-    if (!title) {
-      alert('Please enter a task')
-    } else {
+    if (!editItem) {
       addTasks(title)
+      setTitle('')
+    } else {
+      editTask(title, editItem.id)
       setTitle('')
     }
   }
@@ -27,6 +36,7 @@ const TodoForm = () => {
           placeholder='Add task'
           autoFocus
           value={title}
+          required
           onChange={updateTask}></input>
 
         <button type='submit'>Add</button>
