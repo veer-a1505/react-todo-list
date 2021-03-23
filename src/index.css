@@ -7,8 +7,17 @@
 
 body {
   /* background-color: #322c52; */
-  background-color: #1b9cfc;
+  /* background-color: #1b9cfc; */
   /* background-color: #292f34; */
+  background: #70e1f5;
+  background: -webkit-linear-gradient(to right, #ffd194, #70e1f5);
+  background: linear-gradient(to right, #ffd194, #70e1f5);
+}
+
+input,
+button {
+  outline: none;
+  border: none;
 }
 
 button:hover {
@@ -21,11 +30,12 @@ button:hover {
   height: 600px;
   border-radius: 15px;
 
-  background: rgba(240, 244, 249, 0.6);
+  background: rgba(243, 234, 234, 0.2);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(0px);
   -webkit-backdrop-filter: blur(0px);
   border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .todo-header {
@@ -53,19 +63,30 @@ button:hover {
   margin: 5px auto;
 }
 
+.todo-list li {
+  border: 1px solid;
+  border-radius: 10px;
+}
+
 .todo-form input[type='text'] {
   padding: 10px;
   margin: 10px;
   width: 350px;
   font-size: 20px;
+  border-radius: 10px;
 }
 
 .todo-form button {
   padding: 10px;
   margin: 10px;
+  width: 60px;
+  height: 40px;
+  border-radius: 10px;
 }
 
 .trash-btn {
+  background-color: transparent;
+  border: none;
   width: 50px;
   text-align: center;
   position: absolute;
@@ -73,8 +94,10 @@ button:hover {
 }
 
 .edit-btn {
+  background-color: transparent;
+  border: none;
   width: 50px;
   text-align: center;
   position: absolute;
-  right: 120px;
+  right: 100px;
 }
