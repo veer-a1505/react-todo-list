@@ -3,7 +3,9 @@ import { TodoListContext } from './../state/TodoListprovider'
 
 const TodoForm = () => {
   const [title, setTitle] = useState('')
-  const { addTasks, editItem, editTask } = useContext(TodoListContext)
+  const { addTasks, editItem, editTask, clearTasks } = useContext(
+    TodoListContext
+  )
 
   const updateTask = (e) => {
     setTitle(e.target.value)
@@ -28,6 +30,10 @@ const TodoForm = () => {
     }
   }
 
+  const handleClear = () => {
+    clearTasks()
+  }
+
   return (
     <div className='todo-form'>
       <form onSubmit={handleSubmit}>
@@ -39,7 +45,12 @@ const TodoForm = () => {
           required
           onChange={updateTask}></input>
 
-        <button type='submit'>Add</button>
+        <div className='form-btn'>
+          <button type='submit'>Add</button>
+          <button type='button' onClick={() => handleClear()}>
+            Clear
+          </button>
+        </div>
       </form>
     </div>
   )
