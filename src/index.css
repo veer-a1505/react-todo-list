@@ -58,18 +58,9 @@ button:hover {
 }
 
 .todo-list li {
-  transition: all ease-in 2s;
-}
-
-.todo-list li {
   width: 100%;
   padding: 8px;
   margin: 5px auto;
-}
-
-.todo-list li {
-  border: 1px solid;
-  border-radius: 10px;
 }
 
 .todo-form input[type='text'] {
@@ -116,4 +107,8 @@ button:hover {
 
 .form-btn button {
   width: 30%;
+}
+
+.form-btn button:hover {
+  background-color: aliceblue;
 }
